@@ -26,7 +26,13 @@ cpp-warmup $ mkdir build
 cpp-warmup $ cd build
 cpp-warmup $ cmake ..
 cpp-warmup $ make
-cpp-warmup $ ./fizzbuzz
+```
+
+To run each program from build, you would type
+
+```
+cpp-warmup $ ../bin/fizzbuzz
+cpp-warmup $ ../bin/testcircle
 ```
 
 ## Program 1: FizzBuzz
@@ -73,5 +79,49 @@ Your class should also
 For example, running the program, `testcircle.cpp`, should give the following output.
 
 ```
+#include <iostream>
 
+#include "circle.h"
+
+int main(int argc, char** argv)
+{
+   Circle c1; 
+   Circle c2(10); 
+   Circle c3 = c2;
+   Circle c4 = c2 + c2;
+
+   std::cout << "--------- Starting Values ----------\n";
+   std::cout << "c1: " << c1 << std::endl;
+   std::cout << "c2: " << c2 << std::endl;
+   std::cout << "c3: " << c3 << std::endl;
+   std::cout << "c4: " << c4 << std::endl;
+
+   float area = c3.computeArea();
+   std::cout << "Circle 3 has area: " << area << std::endl;
+
+   c2 = c1;
+   c1.setRadius(c3.getRadius() + 2);
+
+   std::cout << "--------- Ending Values ----------\n";
+   std::cout << "c1: " << c1 << std::endl;
+   std::cout << "c2: " << c2 << std::endl;
+   std::cout << "c3: " << c3 << std::endl;
+   std::cout << "c4: " << c4 << std::endl;
+}
+```
+
+Output
+
+```
+--------- Starting Values ----------
+c1: 0
+c2: 10
+c3: 10
+c4: 20
+Circle 3 has area: 62.8
+--------- Ending Values ----------
+c1: 12
+c2: 0
+c3: 10
+c4: 20
 ```
