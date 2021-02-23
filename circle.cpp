@@ -11,15 +11,13 @@ Circle::Circle(float radius) {
     this->radius = radius;
 }
 
-Circle::Circle(const Circle& c)
-{
+Circle::Circle(const Circle& c) {
    radius = c.radius;
 }
 
 Circle::~Circle() {}
 
-Circle& Circle::operator=(const Circle& c)
-{
+Circle& Circle::operator=(const Circle& c) {
    radius = c.radius;
    return *this;
 }
@@ -36,14 +34,12 @@ float Circle::computeArea() {
     return M_PI * radius * radius;
 }
 
-std::ostream& operator<<(std::ostream& os, const Circle& c)
-{
+std::ostream& operator<<(std::ostream& os, const Circle& c) {
    os << c.radius;
    return os;
 }
 
-Circle operator+(const Circle& c1, const Circle& c2)
-{
+Circle operator+(const Circle& c1, const Circle& c2) {
    float r = c1.radius + c2.radius;
    Circle c(r);
    return c;
